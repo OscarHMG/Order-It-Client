@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">OrderIt</string>
+    <string name="signIn">Ingresar</string>
+    <string name="signUp">Registrarse</string>
+    <string name="name">Nombre</string>
+    <string name="phone">Numero de Telefono</string>
+    <string name="password">Contrasena</string>
+    <string name="load_message">Un momento, por favor..</string>
+    <string name="login_succesfully">Ingreso exitoso.</string>
+    <string name="login_failed">Numero de Telefono y/o contrasena erroneos</string>
+    <string name="verify_login_info">"Verificando informacion.."</string>
+    <string name="field_empties"> Complete todos los campos</string>
+    <string name="field_phone_error"> Numero de Telefono tener 10 digitos</string>
+    <string name="field_password_error">Contrasena debe tener mas de 6 digitos</string>
+    <string name="user_not_exist">El usuario ingresado no existe.</string>
+
+
+    <string name="user_register_succesfully">Numero de Telefono registrado con exito.</string>
+    <string name="user_already_register">Numero de Telefono ya esta registrado</string>
+    <string name="registering_user">Registrando usuario..</string>
+
+
+</resources>
