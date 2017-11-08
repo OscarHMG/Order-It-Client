@@ -8,10 +8,10 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.oscarhmg.orderit.R;
+import com.oscarhmg.orderit.utils.SessionManager;
 
 public class MainActivity extends AppCompatActivity{
     private Button signIn, signUp;
-
 
 
     @Override

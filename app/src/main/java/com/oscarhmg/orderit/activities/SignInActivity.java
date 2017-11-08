@@ -1,6 +1,7 @@
 package com.oscarhmg.orderit.activities;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.oscarhmg.orderit.R;
 import com.oscarhmg.orderit.model.User;
+import com.oscarhmg.orderit.utils.SessionManager;
 import com.oscarhmg.orderit.utils.UtilsDialog;
 import com.oscarhmg.orderit.utils.UtilsEditText;
 
@@ -23,6 +25,7 @@ public class SignInActivity extends AppCompatActivity {
 
     private EditText editTextPhone, editTextPassword;
     private Button signIn;
+    private SessionManager session;
 
     private ProgressDialog progressDialog;
     @Override
@@ -34,6 +37,7 @@ public class SignInActivity extends AppCompatActivity {
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         signIn = (Button) findViewById(R.id.signIn);
 
+        session = new SessionManager(getApplicationContext());
         progressDialog = new ProgressDialog(this);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -86,9 +90,14 @@ public class SignInActivity extends AppCompatActivity {
      * @param user
      */
     public void validateUser(User user){
-        if(user.getPassword().equals(editTextPassword.getText().toString()))
+        if(user.getPassword().equals(editTextPassword.getText().toString())) {
             Toast.makeText(this, getString(R.string.login_succesfully), Toast.LENGTH_SHORT).show();
-        else
+            session.createLoginSession(user.getName(), editTextPhone.getText().toString());
+
+            Intent intentHome = new Intent(this, HomeMenuActivity.class);
+            startActivity(intentHome);
+            finish();
+        }else
             Toast.makeText(this,  getString(R.string.login_failed), Toast.LENGTH_SHORT).show();
     }
 
