@@ -1,5 +1,6 @@
 package com.oscarhmg.orderit.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -21,7 +22,7 @@ import android.widget.Toast;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.oscarhmg.orderit.MenuViewHolder;
+import com.oscarhmg.orderit.viewholder.MenuViewHolder;
 import com.oscarhmg.orderit.R;
 import com.oscarhmg.orderit.interfaces.ItemClickListener;
 import com.oscarhmg.orderit.model.Category;
@@ -37,6 +38,7 @@ public class HomeMenuActivity extends AppCompatActivity implements NavigationVie
 
     private RecyclerView recyclerMenu;
     private RecyclerView.LayoutManager layoutManager;
+    private FirebaseRecyclerAdapter<Category, MenuViewHolder> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +92,7 @@ public class HomeMenuActivity extends AppCompatActivity implements NavigationVie
      * Load category menu from FireBase with recycler view
      */
     private void loadCategoryMenu() {
-        FirebaseRecyclerAdapter<Category, MenuViewHolder> adapter = new FirebaseRecyclerAdapter<Category, MenuViewHolder>
+         adapter = new FirebaseRecyclerAdapter<Category, MenuViewHolder>
                 (Category.class, R.layout.menu_item, MenuViewHolder.class, tableCategory) {
             @Override
             protected void populateViewHolder(MenuViewHolder viewHolder, Category model, int position) {
@@ -104,11 +106,16 @@ public class HomeMenuActivity extends AppCompatActivity implements NavigationVie
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLonglick) {
-                        Toast.makeText(HomeMenuActivity.this, ""+itemClicked.getName(), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(HomeMenuActivity.this, ""+itemClicked.getName(), Toast.LENGTH_SHORT).show();
+                        Intent loadFoodList = new Intent(HomeMenuActivity.this, FoodMenuActivity.class);
+                        loadFoodList.putExtra("CategoryId", adapter.getRef(position).getKey());
+                        startActivity(loadFoodList);
                     }
                 });
             }
         };
+
+
 
         recyclerMenu.setAdapter(adapter);
     }

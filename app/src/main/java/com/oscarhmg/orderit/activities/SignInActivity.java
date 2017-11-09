@@ -66,6 +66,7 @@ public class SignInActivity extends AppCompatActivity {
                             if(dataSnapshot.child(editTextPhone.getText().toString()).exists()) {
                                 UtilsDialog.dismissDialog(progressDialog);
                                 User user = dataSnapshot.child(editTextPhone.getText().toString()).getValue(User.class);
+                                user.setPhone(editTextPhone.getText().toString());
                                 validateUser(user);
                             }else{
                                 UtilsDialog.dismissDialog(progressDialog);

@@ -1,14 +1,15 @@
-package com.oscarhmg.orderit;
+package com.oscarhmg.orderit.viewholder;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.oscarhmg.orderit.R;
 import com.oscarhmg.orderit.interfaces.ItemClickListener;
 
 /**
- * Created by user on 08/11/2017.
+ * Created by OscarHMG on 08/11/2017.
  */
 
 public class MenuViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
