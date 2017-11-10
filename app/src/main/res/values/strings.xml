@@ -30,5 +30,19 @@
     <string name="nav_orders">Pedidos</string>
     <string name="nav_log_out">Cerrar Sesion</string>
 
+    <string name="total">Total: </string>
+    <string name="placeOrder">Realizar pedido</string>
+    <string name="placeOrderCancel">Cerrar</string>
+    <string name="title_placeOrder">Un paso adicional...!</string>
+    <string name="message_placeOrder">Ingrese su direccion: </string>
+    <string name="positve_orderPlace">Ordenar</string>
+    <string name="orderCompletedSend">Gracias, su orden ha sido recibida.</string>
+    <string name="error_empty_addres">Para poder entregarle su orden, necesitamos conocer su direccion.</string>
+    
+    <!--Status of the order -->
+    <string name="placedStatus">Pedido recibido</string>
+    <string name="shippingStatus">Entregando pedido</string>
+    <string name="shippedStatus">Pedido entregado</string>
+
 
 </resources>

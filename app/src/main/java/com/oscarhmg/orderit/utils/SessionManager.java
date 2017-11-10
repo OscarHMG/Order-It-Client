@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.oscarhmg.orderit.activities.HomeMenuActivity;
 import com.oscarhmg.orderit.activities.MainActivity;
+import com.oscarhmg.orderit.activities.SignInActivity;
 
 import java.util.HashMap;
 
@@ -110,7 +111,7 @@ public class SessionManager {
     }
 
     /**
-     * Clear session details
+     * Clear session details, and redirect to Sign In activity
      */
     public void logoutUser() {
         // Clearing all data from Shared Preferences
@@ -118,12 +119,12 @@ public class SessionManager {
         editor.commit();
 
         // After logout redirect user to Loing Activity
-        Intent i = new Intent(context, MainActivity.class);
+        Intent i = new Intent(context, SignInActivity.class);
         // Closing all the Activities
-        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        //i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         // Add new Flag to start new Activity
-        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
         // Staring Login Activity
         context.startActivity(i);

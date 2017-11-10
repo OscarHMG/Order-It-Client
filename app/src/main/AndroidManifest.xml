@@ -36,7 +36,9 @@
         <activity android:name=".activities.SignUpActivity" />
         <activity android:name=".activities.HomeMenuActivity" />
         <activity android:name=".activities.FoodMenuActivity" />
-        <activity android:name=".activities.DetailFoodActivity"></activity>
+        <activity android:name=".activities.DetailFoodActivity" />
+        <activity android:name=".activities.CartActivity" />
+        <activity android:name=".activities.OrderStatusActivity"></activity>
     </application>
 
 </manifest>

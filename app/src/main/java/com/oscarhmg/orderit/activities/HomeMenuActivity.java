@@ -59,8 +59,8 @@ public class HomeMenuActivity extends AppCompatActivity implements NavigationVie
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent orderIntent = new Intent(HomeMenuActivity.this, CartActivity.class);
+                startActivity(orderIntent);
             }
         });
 
@@ -150,20 +150,28 @@ public class HomeMenuActivity extends AppCompatActivity implements NavigationVie
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+        Intent intent;
         int id = item.getItemId();
 
         if (id == R.id.nav_menu) {
-            // Handle the camera action
+
         } else if (id == R.id.nav_cart) {
-
+            intent = new Intent(HomeMenuActivity.this, CartActivity.class );
+            startActivity(intent);
         } else if (id == R.id.nav_orders) {
-
+            intent = new Intent(HomeMenuActivity.this, OrderStatusActivity.class );
+            startActivity(intent);
         } else if (id == R.id.nav_log_out) {
-
+            session.logoutUser();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+
+    public void startActivityFromMenu(){
+
     }
 }
