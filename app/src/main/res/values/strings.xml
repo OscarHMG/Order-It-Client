@@ -44,5 +44,7 @@
     <string name="shippingStatus">Entregando pedido</string>
     <string name="shippedStatus">Pedido entregado</string>
 
+    <string name="searchFoodBarHint">Ingrese el plato a buscar</string>
+
 
 </resources>
